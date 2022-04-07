@@ -112,7 +112,7 @@ console.log(sumatoria);
 // variable();
 
 /* FUNCIONES IIFE*/
-//se ejecutan ni bien son definidas
+//se ejecutan ni bien son declaradas. Se llaman en si mismas---> ()
 /* 
 EJEMPLO:
 
@@ -122,25 +122,167 @@ console.log("esto es una función IIFE");
 
 */
 
-/*----- -----*/
+/*----- SCOPE -----*/
+// ambito o alcance de una ejecución, las funciones sirven como cierre creando un ambito.
+// ejemplo, todo lo que esta dentro de las {} en una función en cuanto a variables locales, pero no con variables globales
 
-/*----- -----*/
+/* let numero = 10;
 
-/*----- -----*/
+function imprimirNumero(){
+    numero1++;
+    console.log("desde dentro" + numero)
+}
+imprimirNumero();
+console.log("desde afuera" + numero) */
 
-/*----- -----*/
+/*-----CLOSURE-----*/
+// conocimiento de variables por ser adyacente con otra
 
-/*----- -----*/
 
-/*----- -----*/
+/*-----TEMPLATE STRING -----*/
+//Se utiliza backsticks para poder concatenar de forma dinamica.
 
-/*----- -----*/
+/* let string1 = "hola";
+let string2 = " Mundo";
 
-/*----- -----*/
+console.log(string1 +  string2)
+console.log(`${string1} si hago un salto de linea aca, se va a imprimir ${string2}`); */
 
-/*----- -----*/
 
-/*----- -----*/
+/*----- Ejercicio Funciones y closures-----*/
+
+//length me muestra el tamaño del array
+
+/* function mostrarLista(lista) {
+    //if = si se cumple esta condicion
+    if (lista.length > 0) {
+        console.log(lista);
+        //else if = si no se cumple la primer condicion, se cumple la segunda
+    } else if (lista.precio < 100) {
+//else = sinó se cumple la primera o la segunda, se cumple ésta
+    } else {
+        console.log('lista vacia');
+    }
+}
+
+mostrarLista([]); */
+
+//EJEMPLO 2
+/* function filtrarPorPrecio(numero) {
+    if (numero < 100) {
+        console.log('valor menor a 100');
+    } else if (numero > 100 && numero < 200) {
+        console.log('valor entre 100 y 200')
+    } else {
+        console.log('valor mayor a 200');
+    }
+}
+
+filtrarPorPrecio(50); */
+
+
+/*----- si hay un array¿como filtrarlo?-----*/
+/*----- BUCLE FOR -----*/
+//inicia en cero y se lo compara con el tamaño del arreglo. y va recoriendo cada elemento "index++"
+/* let array = [{
+    valor: 'valor1'
+}, {
+    valor: 'valor2'
+}];
+let array2 = [];
+for (let index = 0; index < array.length; index++) {
+    //se accede al elemento
+    const element = array[index].valor;
+    if (element.valor == 'valor1') {
+        array2.push(array[index]);
+    }
+
+} */
+
+/*----- FOR EACH -----*/
+
+/* array.forEach(element => {
+    
+}); */
+
+/*----- FILTER -----*/
+//se agrega una funcion de retorno o "call back". Si array2 está vacío puedo agregarle este valor.
+/* array2 = array.filter(function(element){
+return element.valor == 'valor1';
+}); */
+
+/*----- CLASES -----*/
+// Son una forma de abstraer objetos y sus atributos.
+
+// Estructura
+
+//siempre en mayuscula el nombre de la clase.
+/* class Cliente { 
+    //constructor = define los parametros internos de la clase para luego inicializarlos
+     constructor (nombre, fecha, direccion){
+        //this = son las variables dentro de la clase, se llaman atributos. Las funciones dentro de la calse, se llaman métodos
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.direccion = direccion;
+    }
+} */
+// una clase puede heredar de otra. Por ejemplo:
+
+/* class Producto{
+
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+} */
+//extends = sirve para dar la herencia a otra clase, en este caso de Producto vietual a Producto.
+//super = palabra reservada para estas herencias, se usa para inicializar los atributos de la clase "padre" es decir producto.
+/* class ProductoVirtual extends Producto{
+    constructor(nombre, precio){
+        super(nombre, precio);
+    }
+} */
+
+
+/*----- OPERADOR NEW -----*/
+//Permite crear una instancia de tipo objeto definido por el usuario. Se utiliza sobre una clase
+//1- Crea un objeto vacio | 2- ejecuta el constructor de la calse en el contexto del objeto creado | 3- retorna el objeto
+
+/*class Producto{
+
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+    obtenerNombre(){
+        console.log(this.nombre)
+    }
+    obtenerPrecio(){
+        console.log(this.precio)
+    }
+}
+ class ProductoVirtual extends Producto{
+    constructor(nombre, precio){
+        super(nombre, precio);
+        //tambien se pueden generar su propios atributos como por ejemplo el siguiente. Este no se mostrará dado que no esta en "super" hasta que se cree su propio método en su interior.
+        this.tipo='virtual'
+    }
+    obtenerTipo(){
+       return this.virtual;
+    }
+} */
+
+// Crear un producto, se llama instanciación de producto. instanciar. Siempre despues del NEW, va el tipo de objeto a crear-
+/* let heladera = new Producto('heladera', 150);
+console.log(heladera);
+heladera.obtenerNombre();
+heladera.obtenerPrecio();
+
+let productoVirtual = new ProductoVirtual("game", 200)
+console.log(productoVirtual); */
+
+
+
 
 /*----- -----*/
 
