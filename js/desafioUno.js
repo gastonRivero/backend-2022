@@ -6,14 +6,14 @@ class Usuario {
         this.mascotas = mascotas;  
     }
     getFullName(){
-       console.log (`${this.nombre} ${this.apellido}`)
+       console.log ( `El se llama ${this.nombre} ${this.apellido}`)
     }
 
      countMascota(){
-         console.log(this.mascotas.length)
+         console.log(`Tiene ${this.mascotas.length} mascotas`)
      }
      getBooks(){
-        console.log(this.libros)
+        console.log(` Tiene estos libros: ${this.libros.map((li) => li.nombre)}`)
      }
 }
 
@@ -21,3 +21,4 @@ let user = new Usuario('Gastón', 'Rivero', [{nombre:"La ley", autor:"Fowler New
 user.getFullName();
 user.countMascota();
 user.getBooks();
+
